@@ -1,0 +1,17 @@
+* Eventorbot-EU
+
+The aim of this project is to recreate the documentation of the
+[[http://reprap.org/wiki/Eventorbot][Eventorbot! Open source 3D printer]] in [[http://www.openscad.org/][OpenSCAD]] format. Although the
+printer itself is a [[http://www.gnu.org/philosophy/free-sw.html][free]] project, it has been documented with Google's
+SketchUp program which isn't free at all and can't work under
+GNU/Linux (or any other free operating system, probably), even with the
+help of [[http://www.winehq.org][Wine]].
+
+The other motivation is that the original steel frame was made of 2"½
+profile which is not available in some parts of the world where you
+can buy 60x60 mm without any problems.
+
+* Original work
+
+The original [[http://www.thingiverse.com/thing:28915][Eventorbot! Open source 3D printer]] has been designed by
+[[http://www.thingiverse.com/eventorbot/designs][Duy Dang]].
