@@ -1,0 +1,51 @@
+#+BEGIN_HTML
+---
+layout: post
+title:  Five Ws about Eventorbot-EU
+date:   2014-03-11T09:55:40+0100
+---
+#+END_HTML
+
+This blog (what is a blog?) is going to be about my attempt to build a
+3d printer.
+
+I've been told that the best way for a good start of a successful
+project is to make sure you've got all the information you need. The
+basic way to gather them is to ask *Five Ws*.
+
+* Who?
+
+Me. I work as a software engineer and I have always been a software
+guy, so hardware hacking like this is quite a challenge for
+me. However, I hope the the /engineer/ part will help.
+
+* What?
+
+[[http://reprap.org/wiki/Eventorbot][Eventorbot]]. Among many different RepRap designs this one seems to be
+the easiest to assemble, or at least I feel it is easiest to identify
+possible issues. Compared to other models with frames assembled from
+either threaded rods or aluminum profiles it has much less degrees of
+freedom hence ways to screw (no pun inteded) up the frame. Although, I
+admit that a welder is not as trivial tool as a screw driver or a
+wrench.
+
+* When?
+
+I hope to print some Christmas prestents this year.
+
+* Where?
+
+Europe. The original Eventorbot was designed with imperial units in
+mind available in the USA. Here, in Europe, we don't have 2"½ steel
+square pipes, we've got 60x60 mm ones. Finding 10-32 screws isn't
+trivial too and they don't come at dime-a-dozen. This means I need to
+redesign some parts.  The other reason is that the original design is
+distributed as a Sketchup file which I've got no way to read on my
+Linux machine.
+
+* Why?
+
+I want to have a 3d printer and after twenty years of software hacking
+I'd love to do something completely different. As of now it seems
+quite hard for me to take those comfortable shoes off and not send
+[[https://github.com/openscad/openscad/pull/460][patches]]. Anyway, learning new software is fun too.
