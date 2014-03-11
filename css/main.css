@@ -150,6 +150,15 @@ a:visited { color: #a0a; }
     border-width: 0;
 }
 
+.footer .links {
+    list-style-type: none;
+}
+
+.footer .links li{
+    display: inline;
+    padding: 0 2em;
+}
+
 .footer .contact {
   float: left;
   margin-right: 3em;
