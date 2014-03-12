@@ -1,5 +1,5 @@
 ((nil . ((indent-tabs-mode . nil)
-	 (tab-width . 4)))
+	 (c-basic-offset . 4)))
  (html-mode . ((sgml-basic-offset . 4)))
  (org-mode . ((org-publish-project-alist
 	       . (("github-blog"
