@@ -9,6 +9,7 @@
 		   :recursive t
 		   :publishing-function org-html-publish-to-html
 		   :headline-level 4
+                   :with-toc nil
 		   :body-only t ;; Only export section between <body> </body>
 		   )
 		  ("github-static"

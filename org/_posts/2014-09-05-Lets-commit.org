@@ -1,0 +1,41 @@
+#+BEGIN_HTML
+---
+layout: post
+title:  Let's commit
+date:   2014-09-15T21:32:25+0200
+---
+#+END_HTML
+
+What a year, two new hobbies and great people who support me. I've
+built *five* RC planes and all of them flew for better or worse! If
+you want to try it I recommend you visit [[http://flitetest.com][FliteTest]] and see their
+"Beginner's Series". Then build [[http://mikeysrc.com/Sport-Trainer.html][Mikey's RC Sport Trainer]]. If you do it
+like I did I can promise it will fly[fn:1].
+
+Now that autumn is coming and the weather may not be favourable, I am
+getting back to my Eventorbot. Yesterday I pushed a commit with
+(almost) all plastic parts in OpenSCAD format. Those that are missing,
+are not crucial like footings, which I intend to build from wood, or
+completely unimportant like caps. The extruder is missing too, that is
+because, I decided to use NEMA17 which requires the extruder to be
+completely redesigned or I will use one of popular designs.
+
+Today I've ordered a [[http://gadgets3d.com/index.php?route%3Dproduct/product&path%3D62&product_id%3D87][set of parts]] and a [[http://gadgets3d.com/index.php?route%3Dproduct/product&path%3D60&product_id%3D79][spool of PLA]]. In the next
+couple of weeks I need to:
+
++ find a working 3d printer to...
++ print the plastic parts,
++ prepare scad files with assemblies.
+
+Then the greatest challenge will be building the frame. I can't weld
+so in one way or another I am going to get it built for me. Because
+I'd like to have the machine *working* before Christmas I will
+probably go to a laser-cutting-n-bending-n-welding shop since I expect
+their price for the frame won't by significantly higher than for a
+good hot-end. But that's not yet decided.
+
+* Footnotes
+
+[fn:1] If you live in Europe where you can't get Dollar Tree Foamboard,
+you can use FOAM-X. The plane will be heavier but with an EMAX C2822
+(KV1200, 170W) and a GWS 9050 propeller there won't be any issues.
