@@ -48,9 +48,7 @@ module p008 () {
                 }
             cube ([38, 4, 24]);
         }
-        translate ([8.0, 0, 11 ])
-            rotate ([-90, 0, 0])
-            p008_mounting(1, bom = false);
+        p008_mounting(1, bom = false);
         translate ([11.5, 12.5, 11.0])
             rotate ([0, 90, 0])
             scale([1, 1, 1.1])
@@ -76,6 +74,8 @@ module p008_mounting(length=0, bom=true) {
     bolt_length = 5 * ceil((2 + hex_nut_thickness(M5) + length)/5);
 
 
+    translate ([8, 0, 11])
+        rotate ([-90, 0, 0])
     for (i=[0, 1])
 	translate([22*i, 0, 0])
             render(convexity=4)

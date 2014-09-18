@@ -18,25 +18,29 @@
  *
  */
 
-/// \file colors.scad Colour configuration file for Eventorbot
-/// machine. Use the with the "include" directive.
 
-grey20 = [0.2, 0.2, 0.2];
-grey40 = [0.4, 0.4, 0.4];
-grey60 = [0.6, 0.6, 0.6];
-grey80 = [0.8, 0.8, 0.8];
+include <config.scad>
 
-rod_color = grey80;
+module rod(d, l)
+{
+    echo (str ("BOM: vitamin Smooth rod ", d, "mm x ", round(l), "mm"));
+    color (rod_color)
+        cylinder (d=d, h=l);
+}
 
-/**
- * Depending on configuration make plastic parts use the same or
- * different colours for plastic parts. 
- * 
- * @param colour Colour to return unless use_realistic_colors is true.
- */
-function plastic_color(colour) = use_realistic_colors ? printed_plastic_color : colour;
+LM08UU = [24, 15, 8];
 
-x_carriage_color = plastic_color("OrangeRed");
-clamp_color = plastic_color("LawnGreen");
-bearing_color = grey60;
-bolt_color = grey80;
+module linear_bearing(type)
+{
+    L = type[0];
+    D = type[1];
+    d = type[2];
+    echo (str ("BOM vitamin LM", d, "UU linear bearing"));
+    color (bearing_color)
+        translate ([0, 0, L / 2])
+        difference ()
+    {
+        cylinder (d = D, h = L, center = true);
+        cylinder (d = d, h = L + 1, center = true);
+    }
+}

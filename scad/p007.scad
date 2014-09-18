@@ -18,6 +18,7 @@
  */
 
 include <../lib/metric_fasteners.scad>
+use <../lib/bom.scad>
 use <p008.scad>
 
 /// \file p007.scad X carriage
@@ -61,6 +62,7 @@ module p007 ()
             rotate ([0, 90, 0])
             p008_mounting (29, false);
     }
+    bom_fff();
 }
 
 /*
