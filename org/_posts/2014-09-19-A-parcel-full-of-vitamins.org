@@ -1,0 +1,68 @@
+#+BEGIN_HTML
+---
+layout: post
+title:  A parcel full of vitamins
+date:   2014-09-19T22:28:15+0200
+---
+#+END_HTML
+
+Today I received the parcel I had ordered at Gadgets3D. However, they
+have web stores that deliver to EU and worldwide with prices in Euro
+and US dollars, respectively, they are Polish company and if you ask
+them they are willing to charge you in złoty and avoid additional
+exchange cost. In the parcel there were pieces of [[http://gadgets3d.com/index.php?route%3Dproduct/product&path%3D62&product_id%3D87][RAMPS 1.4. STARTER
+SET]] and a spool of [[http://gadgets3d.eu/index.php?route%3Dproduct/product&path%3D60&product_id%3D98][orange PLA]]. I've got yet to find out in practice
+but the set seems to be more than enough to build my machine.
+
+In the parcel I found
+
+  + RAMPS on an ATmega2560 CPU board[fn:1]
+  + MicroSD slot.
+  + LCD+SD panel with a rotary encoder
+  + Five NEMA17 motors[fn:2]
+  + Cooling plate, an acrylic frame with two 50mm fans and a set of
+    mounting screws and nylon stand-offs.
+  + G3D hot end based on Budaschnozzle 1.1
+  + 1.75 mm and 3 mm PTFE tubes.
+  + 0.5 and 0.4 nozzles
+  + 3.6m of 6mm wide GT2 timing belt.
+  + Two pulleys with for locking screws and an appropriate hex key.
+  + Nine end-stops:
+    + three magnetic (hall effect) with three magnets
+    + three mechanical (me1 style), mounted on PCBs with RC filters and LEDs,
+    + three ordinary 5 amp micro switches with lever and rollers.
+  + Fan splitter, a PCB with a bunch of connectors to plug fans in.
+  + 40 mm fan.
+  + 50 mm fan.
+  + Hobbed bolt.
+  + Four thermistors.
+  + MK2a heatbed.
+  + A bunch of cables with connectors crimped on one end of each.
+  + A roll of 50 mm wide kapton tape.
+  + Six springs.
+  + Four bulldog paper clips.
+  + Japanese ceramic screw driver for tuning step-sticks.
+  + A roll of PTFE tape.
+  + 4GB SD card.
+
+Other vitamins I know I will need are:
+
+  + smooth rods,
+  + threaded rod,
+  + the frame,
+  + nuts and bolts.
+
+This means it should be possible to build the machine under 500 €.
+
+* Footnotes
+
+[fn:1] Sadly it's a fake Arduiono, however guys at G3D haven't claimed
+       it is genuine.
+
+[fn:2] I've got no experience with such motors. In case of most DC
+       motors connecting their leads together makes it hard to turn a
+       shaft. In case of these I cant turn a shaft at all. This means
+       the winding resistance is very low, good thing.
+
+
+
