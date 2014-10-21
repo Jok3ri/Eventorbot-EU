@@ -44,3 +44,26 @@ module linear_bearing(type)
         cylinder (d = d, h = L + 1, center = true);
     }
 }
+
+module nema17_mounting(length=0, bom=true)
+{
+	hole_depth = 4.5;
+	hole_distance = 31.04;
+	bolt_diameter = M3;
+	bolt_length = 5*floor((hole_depth + length + 1)/5);
+
+	render (convexity = 4)
+            for (r = [0:90:270])
+		rotate ([0, 0, r])
+                    translate ([hole_distance/2, hole_distance/2, -length])
+                    hex_bolt (bolt_diameter, bolt_length);
+
+	if (bom)
+	{
+		echo (str ("BOM: bolt M3x", bolt_length));
+		echo (str ("BOM: bolt M3x", bolt_length));
+		echo (str ("BOM: bolt M3x", bolt_length));
+		echo (str ("BOM: bolt M3x", bolt_length));
+	}
+}
+

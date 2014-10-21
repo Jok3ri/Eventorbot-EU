@@ -17,42 +17,67 @@
  *
  */
 
-/// file p015.scad Bed carriage, idler cap
+/// \file p015.scad Bed carriage, idler cap
+
+include <../lib/metric_fasteners.scad>
 
 module p015 ()
 {
     difference ()
     {
-        cube ([ 51.00, 20.00, 25.00 ]);
-        translate ([ 25.5, -1.00, 4.75 ])
-            rotate ([-90, 0, 0])
-            cylinder (d=3.5, h=22, $fn=24);
+        cube ([51.00, 20.00, 25.00]);
+
+        p015_mounting (bom=false);
+
         translate ([ 11, -1.00, 18 ])
-            rotate([-90, 0, 0])
-            cylinder(d=8, h=22, $fn=24);
+            rotate ([-90, 0, 0])
+            cylinder (d=8, h=22, $fn=24);
+
         translate ([ 40, -1.00, 18 ])
             rotate ([-90, 0, 0])
             cylinder (d=8, h=22, $fn=24);
-        difference(){
+
+        difference ()
+        {
             translate ([-1, 5, 3.5])
                 cube ([ 53.00, 10.00, 25.00 ]);
+
             intersection ()
             {
                 translate ([ 21.25, 3, 1 ])
                     cube ([ 8.5, 14.00, 10 ]);
-                translate ([ 25.5, 4, 1])
+
+                translate ([25.5, 4, 1])
                     rotate ([0, 45, 0])
                     translate ([-6, 0, -6])
                     cube (12);
             }
-
         }
-        translate ([ -1.00, 14.00, 9 ])
-            cube ([ 21.50, 7.00, 10 ]);
-        translate ([ 30.50, 14.00, 9 ])
-            cube ([ 21.50, 7.00, 10 ]);
-        translate ([ -1.00, 14.00, 18 ])
-            cube([ 53.0, 7.00, 10 ]);
+
+        translate ([-1.00, 14.00, 9])
+            cube ([21.50, 7.00, 10]);
+
+        translate ([30.50, 14.00, 9])
+            cube ([21.50, 7.00, 10]);
+
+        translate ([-1.00, 14.00, 18])
+            cube ([53.0, 7.00, 10]);
+    }
+
+    bom_fff ();
+}
+
+module p015_mounting (length=0, bom=true)
+{
+    bolt_length = 5*ceil((20 + length + hex_nut_thickness(M3))/5);
+
+    translate ([ 25.5, 0, 4.75 ])
+        rotate ([-90, 0, 0])
+        hex_bolt (M3, bolt_length);
+
+    if (bom)
+    {
+        echo (str ("BOM: bolt M3x", bolt_length));
     }
 }
 

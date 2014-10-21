@@ -17,8 +17,8 @@
  *
  */
 
-/// \file p014.scad A holder for linear bearings holding bed rods,
-/// mounted on the bed carrige.
+/// \file p014.scad Bed carriage, a holder for linear bearings holding
+/// bed rods, mounted on the bed carriage.
 
 use <../lib/bom.scad>
 use <../MCAD/nuts_and_bolts.scad>
