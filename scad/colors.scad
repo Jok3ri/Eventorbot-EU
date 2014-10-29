@@ -40,3 +40,7 @@ x_carriage_color = plastic_color("OrangeRed");
 clamp_color = plastic_color("LawnGreen");
 bearing_color = grey60;
 bolt_color = grey80;
+bed_carriage_color_one = plastic_color("LawnGreen");
+bed_carriage_color_two = plastic_color("LimeGreen");
+bed_carriage_color_three = plastic_color("ForestGreen");
+bed_carriage_color_four = plastic_color("GreenYellow");

@@ -23,7 +23,8 @@ include <../lib/metric_fasteners.scad>
 
 module p015 ()
 {
-    difference ()
+    render ()
+        difference ()
     {
         cube ([51.00, 20.00, 25.00]);
 
@@ -73,11 +74,17 @@ module p015_mounting (length=0, bom=true)
 
     translate ([ 25.5, 0, 4.75 ])
         rotate ([-90, 0, 0])
+        union()
+    {
         hex_bolt (M3, bolt_length);
+        translate ([0, 0, 20 + length])
+            hex_nut (M3);
+    }
 
     if (bom)
     {
         echo (str ("BOM: bolt M3x", bolt_length));
+        echo (str ("BOM: nut M3"));
     }
 }
 

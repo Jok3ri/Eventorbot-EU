@@ -50,14 +50,15 @@ module p014_mounting (length = 0.0, bom = true){
 }
 
 module p014 () {
-    difference()
+    render ()
+        difference()
     {
         union ()
         {
             // the body
-            translate ([0,0,0]) cube ([63,17.5,51]);
+            translate ([0,0,0]) cube ([62,15,51]);
             // end-stop lug
-            translate ([61,0,0]) cube ([14.48,20,3]);
+            translate ([61,0,0]) cube ([14,20,3]);
 
             // linear-bearing barrels
             translate ([13,   15,0]) cylinder (d=26,h=51);
@@ -72,7 +73,7 @@ module p014 () {
             translate ([13+37,15.5,0]) cylinder (d=15,h=53);
 
             // end-stop hole
-            translate ([69,13.4,0]) cylinder (d=5,h=53);
+            translate ([69,13.4,0]) cylinder (d=6,h=53);
 
             //the slot
             translate ([12.5,8,0]) cube ([37,1.5,53]);

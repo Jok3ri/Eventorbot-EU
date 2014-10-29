@@ -34,7 +34,7 @@ module p012_mounting (length = 0, bom = true)
 {
     bolt_length = 5*ceil((15.0 + hex_nut_thickness(M5) + length + 1)/5);
 
-    render (convexity = 6)
+    render ()
         translate ([51/2, 142, 13])
         for (t=[0,12])
             translate ([0, 0, t])

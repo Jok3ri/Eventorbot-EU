@@ -26,7 +26,8 @@ include <vitamins.scad>
 
 module p013 ()
 {
-    difference ()
+    render ()
+        difference ()
     {
         union ()
         {
@@ -50,7 +51,7 @@ module p013 ()
             nema17_mounting (7, false);
 
         translate ([32, 25.5, -1])
-            cylinder (d=34, h=9);
+            cylinder (d=34, h=9, $fn=24);
 
         translate ([66.25, 25.5, -1])
             cylinder (d=3.5, h=9, $fn=24);
