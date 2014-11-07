@@ -54,7 +54,8 @@ module p012_mounting (length = 0, bom = true)
 
 module p012 ()
 {
-    difference()
+    render ()
+        difference()
     {
         union()
         {

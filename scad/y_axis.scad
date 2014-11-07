@@ -20,6 +20,7 @@
 use <../lib/bom.scad>
 include <../lib/metric_fasteners.scad>
 include <../MCAD/stepper.scad>
+include <../MCAD/bearing.scad>
 include <config.scad>
 
 include <vitamins.scad>
@@ -32,15 +33,33 @@ use <p015.scad>
 
 module bed_carriage()
 {
+	// carriage base
 	translate ([146, 51/2, 0])
             rotate ([0, 180, 90])
             color (bed_carriage_color_one)
             p012 ();
 
+        // idler holder
 	translate ([0, -51/2, 0])
+            union ()
+        {
             color (bed_carriage_color_two)
-            p013 ();
+                p013 ();
+            for (ty = [11, 40])
+                translate ([53, ty, 12])
+                {
+                    translate ([0, 0, washer_dimensions(M8)[2] + bearingDimensions(608)[2]])
+                        color (washer_color)
+                        washer(M8); echo ("BOM: washer M8");
+                    translate ([0, 0, washer_dimensions(M8)[2]])
+                        color (bearing_color)
+                        bearing(model=608);
+                    color (washer_color)
+                        washer(M8); echo ("BOM: washer M8");
+                }
+        }
 
+        // linear bearing holder
 	translate ([62+84, -51/2, 0])
             rotate([90,0,180])
             union ()
@@ -49,8 +68,14 @@ module bed_carriage()
                 p014 ();
             color (bolt_color)
                 p014_mounting(length=2);
+            for (tx = [0, 37])
+                translate ([13+tx,15.5,0])
+                    for (tz = [0, LM08UU[0]+3])
+                        translate ([0,0,tz])
+                            linear_bearing (LM08UU);
         }
-        
+
+        // idler cap
 	translate ([71, -51/2, 27])
             rotate ([-90, 0, 90])
             union ()
@@ -61,6 +86,7 @@ module bed_carriage()
                 p015_mounting(length=9);
         }
 
+        // motor
         translate ([32, 0, -2])
             rotate ([180, 0, 0])
             union ()
@@ -72,3 +98,4 @@ module bed_carriage()
 }
 
 bed_carriage();
+
