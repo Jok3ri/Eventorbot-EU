@@ -80,3 +80,31 @@ module hex_nut_hole (size)
             cylinder (d = d, h = m + 0.1, $fn = 26);
     }
 }
+
+/**
+ * Basic washer for metric bolts.
+ *
+ * @param size Index in the tables. Use M* variables
+ */
+
+module washer (size)
+{
+    wd1 = METRIC_WASHERS[size][0];
+    wd2 = METRIC_WASHERS[size][1];
+    wh = METRIC_WASHERS[size][2];
+
+    render()
+        difference ()
+    {
+        cylinder (d=wd2, h=wh);
+        cylinder (d=wd1, h=2.1*wh, center=true);
+    }
+}
+
+/**
+ * Dimensions of a basic washer for metric bolts.
+ *
+ * @param size Index in the tables. Use M* variables
+ * @return [inner d., outer d., height]
+ */
+function washer_dimensions(size) = METRIC_WASHERS[size];
