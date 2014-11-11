@@ -2,6 +2,7 @@
 
 /// \file p023.scad The clamp to hold the rods under the bed
 
+use <../lib/bom.scad>
 use <../MCAD/nuts_and_bolts.scad>
 
 /** The nut and the bolt to mount the clamp on the rod

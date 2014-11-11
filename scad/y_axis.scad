@@ -28,19 +28,24 @@ use <p012.scad>
 use <p013.scad>
 use <p014.scad>
 use <p015.scad>
+use <p020.scad>
+use <p021.scad>
+use <p022.scad>
+use <p023.scad>
 
 /// \file y_axis.scad Y axis assembly (bed)
 
 module bed_carriage()
 {
-	// carriage base
-	translate ([146, 51/2, 0])
+        assembly ();
+        // carriage base
+        translate ([146, 51/2, 0])
             rotate ([0, 180, 90])
             color (bed_carriage_color_one)
             p012 ();
 
         // idler holder
-	translate ([0, -51/2, 0])
+        translate ([0, -51/2, 0])
             union ()
         {
             color (bed_carriage_color_two)
@@ -56,11 +61,13 @@ module bed_carriage()
                         bearing(model=608);
                     color (washer_color)
                         washer(M8); echo ("BOM: washer M8");
+
                 }
+
         }
 
         // linear bearing holder
-	translate ([62+84, -51/2, 0])
+        translate ([62+84, -51/2, 0])
             rotate([90,0,180])
             union ()
         {
@@ -68,7 +75,7 @@ module bed_carriage()
                 p014 ();
             color (bolt_color)
                 p014_mounting(length=2);
-            for (tx = [0, 37])
+            for (tx = [0, bed_rod_distance])
                 translate ([13+tx,15.5,0])
                     for (tz = [0, LM08UU[0]+3])
                         translate ([0,0,tz])
@@ -76,7 +83,7 @@ module bed_carriage()
         }
 
         // idler cap
-	translate ([71, -51/2, 27])
+        translate ([71, -51/2, 27])
             rotate ([-90, 0, 90])
             union ()
         {
@@ -95,7 +102,65 @@ module bed_carriage()
             color (bolt_color)
                 nema17_mounting(length=9);
         }
+        end ();
 }
 
-bed_carriage();
 
+module bed ()
+{
+    rod_dia = 8;
+    rod_len = 25.4 * 10.5;
+
+    assembly();
+    translate ([ 0.1, -60.00, 28. ])
+        rotate ([180, 0, 90])
+    {
+        // bed frame part one
+        color (bed_frame_one) p020();
+        translate ([21, 165-7-121.10, 21.5])
+            rotate ([90,90,180])
+        {
+            color (bed_frame_belt_clamp) p022();
+            color (bolt_color) p022_mounting(20);
+        }
+
+
+        // bed frame part two
+        translate ([ 143.50 + 135.40, 165, 0])
+            rotate ([0,0,180])
+        {
+            color (bed_frame_two) p021 ();
+            translate ([21-7.5, 7+121.10, 21.5])
+                rotate ([90,90,0])
+            {
+                color (bed_frame_belt_clamp) p022 ();
+                color (bolt_color) p022_mounting(20);
+            }
+
+        }
+
+        // rods
+        for (t = [32.1, 32.1 + bed_rod_distance])
+            translate ([10, 165-t, 12.5])
+                rotate([0, 90, 0])
+            {
+                rotate([0, 0, 20])rod(rod_dia, rod_len);
+                translate ([0, 0, rod_len - 17.8])
+                {
+                    color(bed_frame_rod_clamp) p023 ();
+                    color (bolt_color) p023_mounting();
+                }
+            }
+    }
+    end();
+}
+
+module y_axis ()
+{
+    assembly ();
+    bed_carriage ();
+    bed ();
+    end ();
+}
+
+y_axis ();

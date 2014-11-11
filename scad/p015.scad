@@ -19,6 +19,7 @@
 
 /// \file p015.scad Bed carriage, idler cap
 
+use <../lib/bom.scad>
 include <../lib/metric_fasteners.scad>
 
 module p015 ()

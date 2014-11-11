@@ -20,6 +20,7 @@
 /// \file p014.scad Bed carriage, a holder for linear bearings holding
 /// bed rods, mounted on the bed carriage.
 
+include <config.scad>
 use <../lib/bom.scad>
 use <../MCAD/nuts_and_bolts.scad>
 
@@ -62,7 +63,7 @@ module p014 () {
 
             // linear-bearing barrels
             translate ([13,   15,0]) cylinder (d=26,h=51);
-            translate ([13+37,15,0]) cylinder (d=26,h=51);
+            translate ([13+bed_rod_distance,15,0]) cylinder (d=26,h=51);
         }
 
         translate ([0,0,-1])
@@ -70,7 +71,7 @@ module p014 () {
         {
             // linear bearing holes
             translate ([13,15.5,0]) cylinder (d=15,h=53);
-            translate ([13+37,15.5,0]) cylinder (d=15,h=53);
+            translate ([13+bed_rod_distance,15.5,0]) cylinder (d=15,h=53);
 
             // end-stop hole
             translate ([69,13.4,0]) cylinder (d=6,h=53);

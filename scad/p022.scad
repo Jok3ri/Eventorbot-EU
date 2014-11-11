@@ -64,7 +64,8 @@ module p022_mounting (length = 0.0, bom = true)
 
 module p022 ()
 {
-    difference ()
+    render ()
+        difference ()
     {
         cube([21.5, 7.5, 7]);
         translate ([ 6.80, -.25,  6.0]) cube ([ 7.9, 8.0, 1.1]);

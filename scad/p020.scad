@@ -19,6 +19,7 @@
 
 /// file p020.scad Bed frame, part 1
 
+include <config.scad>
 use <../lib/bom.scad>
 use <p021.scad>
 use <p022.scad>
@@ -27,8 +28,9 @@ module p020()
 {
     h = [16.5, 21.5];
     t = [0, 151];
-    r = [32.1, 68.6];
-    difference ()
+    r = [32.1, 32.1 + bed_rod_distance];
+    render ()
+        difference ()
     {
         union ()
         {

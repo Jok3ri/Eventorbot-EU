@@ -45,3 +45,7 @@ bed_carriage_color_one = plastic_color("LawnGreen");
 bed_carriage_color_two = plastic_color("LimeGreen");
 bed_carriage_color_three = plastic_color("ForestGreen");
 bed_carriage_color_four = plastic_color("GreenYellow");
+bed_frame_one = plastic_color([0, 32/255, 1]);
+bed_frame_two = plastic_color([0, 96/255, 1]);
+bed_frame_belt_clamp = plastic_color([0, 128/255, 1]);
+bed_frame_rod_clamp = plastic_color([0, 64/255, 1]);

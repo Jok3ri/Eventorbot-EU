@@ -84,7 +84,8 @@ module p021()
     h = [21.5, 16.5];
     t = [0, 151];
     r = [32.1, 68.6];
-    difference ()
+    render ()
+        difference ()
     {
         union ()
         {

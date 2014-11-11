@@ -21,6 +21,7 @@
 /// \file config.scad Configuration file for Eventorbot machine. Use
 /// the with the "include" directive.
 
+bed_rod_distance = 37;     /**< Distance between the rods in the bed frame */
 X_smooth_rod_length = 270; /**< Length of X axis smooth rod. */
 Y_smooth_rod_length = 270; /**< Length of X axis smooth rod. */
 Z_smooth_rod_length = 270; /**< Length of X axis smooth rod. */
