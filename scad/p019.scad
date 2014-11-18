@@ -3,6 +3,7 @@
 /// \file p019.scad The nut holder for Z axis driving screw
 
 use <../MCAD/nuts_and_bolts.scad>
+use <../lib/bom.scad>
 use <p018.scad>
 use <p012.scad>
 
@@ -45,12 +46,14 @@ module p019(bom=true, stl=false)
             translate([0, -(cube_depth/2)]) square([15, cube_depth]);
         }
         translate ([7.8,-10,12.5]) cube([20,20,11.5*2]);
-        translate ([-27.2, 0, 18]) bed_carrige_to_z_axis_mounting(bom=false);
-        translate ([13.3, 0, 0]) driving_rod();
+        translate ([-169.2,25.5,5])
+            rotate ([0, 0, -90])
+            p012_mounting(length=14.5, bom=false);
+        
+        translate ([13.3, 0, 0]) driving_rod(bom=false);
     }
-    if (bom)
-    {
-    }
+
+    bom_fff();
 }
 
 /* 

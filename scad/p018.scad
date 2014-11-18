@@ -65,8 +65,9 @@ module p018()
             translate([-0.7, 7]) cube([1.4, 20,50]);
         }
 	//mounting holes
-	translate([-13.10, 27.75, 18]) bed_carrige_to_z_axis_mounting(bom=false);
-
+	translate ([-155, 53.25, 5])
+            rotate ([0, 0, -90])
+            p012_mounting(length=12);
     }
 }
 
@@ -78,4 +79,4 @@ Min Z = -0.000000, Max Z =  48.000000,  Height = 48.0
 */
 //translate ([19.087856+28.5, 9.828491+55.5, 0])
 //rotate ([0,0,180])
-//import("../z carriage P1-018.stl");
+//import("../original/z carriage P1-018.stl");

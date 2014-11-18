@@ -41,6 +41,7 @@ clamp_color = plastic_color("LawnGreen");
 bearing_color = grey60;
 bolt_color = grey80;
 washer_color = grey80;
+
 bed_carriage_color_one = plastic_color("LawnGreen");
 bed_carriage_color_two = plastic_color("LimeGreen");
 bed_carriage_color_three = plastic_color("ForestGreen");
@@ -50,7 +51,7 @@ bed_frame_two = plastic_color([0, 96/255, 1]);
 bed_frame_belt_clamp = plastic_color([0, 128/255, 1]);
 bed_frame_rod_clamp = plastic_color([0, 64/255, 1]);
 
-z_axis_one = plastic_color([32/255, 1, 0]);
-z_axis_two = plastic_color([64/255, 1, 0]);
-z_axis_three = plastic_color([96/255, 1, 0]);
-z_axis_four = plastic_color([128/255, 1, 0]);
+z_axis_one = plastic_color([64/255, 1, 0]);
+z_axis_two = plastic_color([128/255, 1, 0]);
+z_axis_carriage = plastic_color([32/255, 1, 0]);
+z_axis_nut_holder = plastic_color([96/255, 1, 0]);

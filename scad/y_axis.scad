@@ -158,8 +158,11 @@ module bed ()
 module y_axis ()
 {
     assembly ();
-    bed_carriage ();
-    bed ();
+    translate([11.5, 0, 0])
+    {
+        bed_carriage ();
+        bed ();
+    }
     end ();
 }
 
