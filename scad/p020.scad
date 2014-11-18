@@ -28,7 +28,7 @@ module p020()
 {
     h = [16.5, 21.5];
     t = [0, 151];
-    r = [32.1, 32.1 + bed_rod_distance];
+    r = [32.1, 32.1 + Y_rod_distance];
     render ()
         difference ()
     {

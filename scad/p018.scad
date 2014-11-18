@@ -19,6 +19,7 @@
  */
 
 /// \file p018.scad Z-axis carrige
+include <config.scad>
 use <../MCAD/nuts_and_bolts.scad>
 use <p012.scad>
 /**
@@ -60,7 +61,7 @@ module p018()
         // Linear bearing holder
         translate([11,11,-1]) {
             cylinder(h=50, r1=7.5, r2=7.5);
-            translate([0,55.5-22]) cylinder(h=50, r1=7.5, r2=7.5);
+            translate([0,Z_rod_distance]) cylinder(h=50, r1=7.5, r2=7.5);
             translate([-0.7, 7]) cube([1.4, 20,50]);
         }
 	//mounting holes

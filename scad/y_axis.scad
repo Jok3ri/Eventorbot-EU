@@ -75,7 +75,7 @@ module bed_carriage()
                 p014 ();
             color (bolt_color)
                 p014_mounting(length=2);
-            for (tx = [0, bed_rod_distance])
+            for (tx = [0, Y_rod_distance])
                 translate ([13+tx,15.5,0])
                     for (tz = [0, LM08UU[0]+3])
                         translate ([0,0,tz])
@@ -140,7 +140,7 @@ module bed ()
         }
 
         // rods
-        for (t = [32.1, 32.1 + bed_rod_distance])
+        for (t = [32.1, 32.1 + Y_rod_distance])
             translate ([10, 165-t, 12.5])
                 rotate([0, 90, 0])
             {

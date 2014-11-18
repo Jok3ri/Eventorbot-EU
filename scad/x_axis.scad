@@ -29,12 +29,13 @@ use <p023.scad>
 
 /// \file x_axis.scad X axis assembly.
 
-module x_axis ()
+module xz_rails ()
 {
     rod_dia = 8;
     rod_len = 10.5 * 25.4;
+
     assembly();
-    translate ([26.4, 0, 0])
+    translate ([26.4, -24.95, 0])
         rotate ([0, -90, 0])
         union ()
     {
@@ -43,7 +44,7 @@ module x_axis ()
         color (bolt_color)
             p016_mounting(length=2);
     }
-    translate ([rod_len - 26.4, 54.9, 0])
+    translate ([rod_len - 26.4, 54.9 - 24.95, 0])
 	rotate ([0, -90, 180])
         union ()
     {
@@ -52,13 +53,19 @@ module x_axis ()
         color (bolt_color)
             p017_mounting(length=2);
     }
-
     // rods
-    translate([0,8.2,13.2])
-        for(i=[0:1])
-            translate([0, 33.5 * i, 0])
+    translate([0,0,13.2])
+        for(i=[-0.5:0.5])
+            translate([0, X_rod_distance * i, 0])
                 rotate([0, 90, 0]) rod(rod_dia, rod_len);
 
+   end ();
+}
+
+
+module x_axis ()
+{
+    xz_rails ();
 
     // X carriage position x: <26.4, 218.7>
     translate ([26.4+165.9, 8.2, 13.2])
@@ -77,7 +84,7 @@ module x_carriage ()
         p007 ();
 
     for (i=[0,1])
-        translate ([0, 33.5*i, 0])
+        translate ([0, X_rod_distance * i, 0])
             for (i=[0,1])
                 translate ([0, 0, 24*i])
                     linear_bearing (LM08UU);
