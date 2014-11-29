@@ -26,16 +26,16 @@ module rod_support_mounting (length = 0.0, side = "right", bom = true)
     translate ([0, side_trans, 0])
         union ()
     {
-        translate([-length, 24.95, 6.2025])
+        translate([-length, 24.95, 6.2])
             rotate([0, 90, 0])
             boltHole(size=5, length=bolt_length, $fn=25);
-        translate([10.750, 24.95, 6.2025])
+        translate([10.750, 24.95, 6.2])
             rotate([0, 90, 0])
             nutHole(5);
-        translate([-length, 24.95, 20.2025])
+        translate([-length, 24.95, 20.2])
             rotate([0, 90, 0])
             boltHole(size=5, length=bolt_length, $fn=25);
-        translate([10.75, 24.95, 20.2025])
+        translate([10.75, 24.95, 20.2])
             rotate([0, 90, 0])
             nutHole(5);
     }
