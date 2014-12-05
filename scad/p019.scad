@@ -56,6 +56,8 @@ module p019(bom=true, stl=false)
     bom_fff();
 }
 
+p019 ();
+
 /* 
 ============== Size ==============
 Min X =  6.497517, Max X =  26.597517, Width  = 20.1

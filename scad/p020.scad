@@ -95,8 +95,11 @@ module p020()
         for (t = r)
             translate ([10, 165-t, 12.5]) rotate ([0, 90, 0]) cylinder(d=8, h=12);
     }
+
     bom_fff();
 }
+
+p020 ();
 
 /*
 ============== Size ==============

@@ -19,9 +19,12 @@
  */
 
 /// \file p018.scad Z-axis carrige
+
+include <../lib/bom.scad>
 include <config.scad>
 use <../MCAD/nuts_and_bolts.scad>
 use <p012.scad>
+
 /**
  * Z axis carrige holding linear bearings
  */
@@ -69,7 +72,11 @@ module p018()
             rotate ([0, 0, -90])
             p012_mounting(length=12);
     }
+
+    bom_fff ();
 }
+
+p018 ();
 
 /*
 ============== Size ==============

@@ -34,3 +34,5 @@ module p017_mounting (length = 0.0, bom = true)
 {
     rod_support_mounting (length=length, side = "left", bom = bom);
 }
+
+p017 ();

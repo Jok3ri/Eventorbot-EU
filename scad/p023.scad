@@ -60,8 +60,11 @@ module p023 ()
 
         scale([1.001, 1, 1]) p023_mounting(bom=true);
     }
+
     bom_fff();
 }
+
+p023 ();
 
 /*
 ============== Size ==============

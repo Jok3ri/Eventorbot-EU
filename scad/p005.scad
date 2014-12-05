@@ -21,6 +21,7 @@
 /** \file p005.scad Mounting bracket for NEMA17 motor. */
 
 include <../lib/metric_fasteners.scad>
+include <../lib/bom.scad>
 
 /**
  * Mounting bracket for NEMA17 motor.
@@ -58,7 +59,11 @@ module p005()
 	translate([13,49.20/2,4]) scale([1,1,1.2]) rotate([180, 0, 30]) hex_bolt(M5,20);
 	translate([31,49.20/2,4]) scale([1,1,1.2]) rotate([180, 0, 30]) hex_bolt(M5,20);
     }
+
+    bom_fff ();
 }
+
+p005 ();
 
 /*
 ============== Size ==============

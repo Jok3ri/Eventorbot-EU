@@ -63,8 +63,11 @@ module p007 ()
             rotate ([0, 90, 0])
             p008_mounting (29, false);
     }
+
     bom_fff();
 }
+
+p007 ();
 
 /*
 ============== Size ==============

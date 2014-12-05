@@ -35,6 +35,7 @@ module p011_a ()
         translate ([0,7.05 - dia1/2,-1]) cylinder(d=5, h=9, $fn=24);
         translate ([0,26.05 - dia1/2,-1]) cylinder(d=5, h=9, $fn=24);
     }
+
     bom_fff();
 }
 
@@ -58,6 +59,7 @@ module p011_b ()
         translate ([0, -30, 0])
             cube (60,center=true);
     }
+
     bom_fff();
 }
 
@@ -67,6 +69,8 @@ module p011 ()
     translate ([48.10/2 + 38.10/2 - 4, -38.10/2, 0])
         p011_b();
 }
+
+p011 ();
 
 /*
 ============== Size ==============

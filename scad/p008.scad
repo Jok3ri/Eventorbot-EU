@@ -19,6 +19,7 @@
  */
 
 include <../lib/metric_fasteners.scad>
+include <../lib/bom.scad>
 
 module p008 () {
     difference ()
@@ -54,6 +55,8 @@ module p008 () {
             scale([1, 1, 1.1])
             p008_belt_clamping();
     }
+
+    bom_fff ();
 }
 
 module p008_belt_clamping(length=0, bom=true){
@@ -90,6 +93,8 @@ module p008_mounting(length=0, bom=true) {
 	echo (str ("BOM: nut M5"));
     }
 }
+
+p008 ();
 
 /*
 ============== Size ==============

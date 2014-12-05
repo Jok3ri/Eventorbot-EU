@@ -71,8 +71,11 @@ module p022 ()
         translate ([ 6.80, -.25,  6.0]) cube ([ 7.9, 8.0, 1.1]);
         translate ([0, 0, -0.1]) p022_mounting(10, bom = false);
     }
+
     bom_fff();
 }
+
+p022 ();
 
 /*
 ============== Size ==============
