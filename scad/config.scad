@@ -21,7 +21,22 @@
 /// \file config.scad Configuration file for Eventorbot machine. Use
 /// the with the "include" directive.
 
-/* Constants */
+/*
+ * Constants
+ *
+ * These value should not be edited. They depend on each other but
+ * there are no formulae (yet?) to describe the dependencies. If you
+ * choose to change any of them, be prepared to adjust every other.
+ */
+
+FRAME_SIDE_LENGTH = 70;         /**< The length of each side of the
+                                 * square pipe used to build the
+                                 * frame */
+FRAME_THICKNESS = 2;
+FRAME_RADIUS = 3 * FRAME_THICKNESS; /**< Max 3 according to
+                                     * BN-79/0656-01, see also
+                                     * EN10219 */
+
 X_AXIS_POSITION = 70.8;         /**< Position of the X axis assembly in the frame */
 X_CARRIAGE_LENGTH = 48.0;       /**< The length of X carriage along the rods */
 Y_CARRIAGE_LENGTH = 51.0;       /**< The length of Y bearing holder along the rods */
@@ -44,7 +59,7 @@ z_working_distance = 199;       /**< Working distance along Z axis */
 
 x_carriage_render_position = 0;
 y_carriage_render_position = 0;
-z_carriage_render_position = 0;
+z_carriage_render_position = 10;
 
 printed_plastic_color = "orange"; /**< Common colour for all printed parts */
 use_realistic_colors = false;     /**< Use one colour for all plastic parts */
@@ -55,11 +70,13 @@ with_ball_screw = false;        /**< Build the machine with a ball
 /* Helper variables, avoid touching. */
 horizontal_frame_hole_position = ceil(X_AXIS_POSITION + ROD_SUPPORT_LENGTH);
 horizontal_frame_hole_length   = ceil(x_working_distance + X_CARRIAGE_LENGTH);
+horizontal_frame_hole_width    = 25;
 horizontal_frame_length = horizontal_frame_hole_position +
     horizontal_frame_hole_length + 46;
 
 vertical_frame_hole_position = ceil(Z_AXIS_POSITION + ROD_SUPPORT_LENGTH);
 vertical_frame_hole_length   = ceil(z_working_distance + Z_CARRIAGE_LENGTH);
+vertical_frame_hole_width    = 25;
 vertical_frame_length = vertical_frame_hole_position +
     vertical_frame_hole_length + 130;
 

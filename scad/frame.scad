@@ -92,23 +92,32 @@ module frame_top(crossection=false)
 {
     whl = horizontal_frame_hole_length;
     whp = horizontal_frame_hole_position;
+    whw = horizontal_frame_hole_width;
     fl = horizontal_frame_length;
 
     render(convexity=10)
         difference ()
     {
-        translate ([0,-30,60])
+        translate ([0,
+                    -FRAME_SIDE_LENGTH / 2,
+                    FRAME_SIDE_LENGTH])
             rotate ([0, 90, 0])
-            square_profile ([60, 60, fl], 2, 2);
+            square_profile ([FRAME_SIDE_LENGTH,
+                             FRAME_SIDE_LENGTH,
+                             fl],
+                            FRAME_THICKNESS,
+                            FRAME_RADIUS);
         union ()
         {
             // cut the end
-            translate ([0, 0, 60-45*sqrt(2)])
+            translate ([(FRAME_SIDE_LENGTH - FRAME_SIDE_LENGTH*sqrt(2))/2,
+                        0,
+                        (FRAME_SIDE_LENGTH - FRAME_SIDE_LENGTH*sqrt(2))/2])
                 rotate ([0, 45, 0])
-                cube([90, 90, 90], center=true);
+                cube(FRAME_SIDE_LENGTH * 2, center=true);
             // x-axis cut out, a hole for the hotend carrige
-            translate ([whp, ((60-25)/2)-30, -1])
-                cube ([whl, 25, 5]);
+            translate ([whp, -whw/2 , -1])
+                cube ([whl, whw, 5]);
             // holes for screws to mount the the rails
             translate ([77, 0, 0]) union ()
             {
@@ -118,11 +127,15 @@ module frame_top(crossection=false)
                 translate ([304, 0, 0]) screw_hole (5);
             }
             // a hole for the passive pulley
-            translate ([fl - 18 - 14, 0, 60])
+            translate ([fl - 18 - 14, 0, FRAME_SIDE_LENGTH])
                 linear_extrude (height=10, center=true)
                 hull () { circle(4); translate ([18, 0, 0]) circle (4);}
             // a hole to access the vertical part
-            translate ([-4, 2-30, -1]) cube ([60,56,62]);
+            translate ([-FRAME_THICKNESS * 2,
+                         FRAME_THICKNESS - FRAME_SIDE_LENGTH / 2,
+                         0]) cube ([FRAME_SIDE_LENGTH,
+                                    FRAME_SIDE_LENGTH - FRAME_THICKNESS * 2 ,
+                                    FRAME_SIDE_LENGTH + FRAME_THICKNESS]);
         }
         if (crossection)
             translate([-1, -1000, -1]) cube(1000);
@@ -131,27 +144,37 @@ module frame_top(crossection=false)
 
 module frame_vertical(crossection=false)
 {
-    working_hole_length   = vertical_frame_hole_length;
-    working_hole_position = vertical_frame_hole_position;
+    whl = vertical_frame_hole_length;
+    whp = vertical_frame_hole_position;
+    whw = vertical_frame_hole_width;
     fl = vertical_frame_length;
 
     render(convexity=10)
         difference ()
     {
-        translate([0, -30, 0])
-        square_profile ([60, 60, fl], 2, 2);
+        translate([0, -FRAME_SIDE_LENGTH/2, 0])
+        square_profile ([FRAME_SIDE_LENGTH,
+                         FRAME_SIDE_LENGTH,
+                         fl],
+                        FRAME_THICKNESS,
+                        FRAME_RADIUS);
         union ()
         {
             // cut both ends at 45 degrees
-            translate ([60, 0, 60-45*sqrt(2)])
+            translate ([(FRAME_SIDE_LENGTH + FRAME_SIDE_LENGTH*sqrt(2))/2,
+                        0,
+                        (FRAME_SIDE_LENGTH - FRAME_SIDE_LENGTH*sqrt(2))/2])
                 rotate ([0, 45, 0])
-                cube([90, 90, 90], center=true);
-            translate ([60, 0, fl-60+45*sqrt(2)])
+                cube(FRAME_SIDE_LENGTH * 2, center=true);
+            translate ([(FRAME_SIDE_LENGTH + FRAME_SIDE_LENGTH*sqrt(2))/2,
+                        0,
+                        fl -(FRAME_SIDE_LENGTH - FRAME_SIDE_LENGTH*sqrt(2))/2
+                           ])
                 rotate ([0, 45, 0])
-                cube([90, 90, 90], center=true);
+                cube(FRAME_SIDE_LENGTH * 2, center=true);
             // z-axis
-            translate ([50, 0, working_hole_position])
-                cube ([10, 25, working_hole_length]);
+            translate ([FRAME_SIDE_LENGTH - FRAME_THICKNESS - 1, -whw/2, whp])
+                cube ([FRAME_THICKNESS + 2, whw, whl]);
         }
         if (crossection)
             translate([-1, -1000, -1]) cube(1000);
@@ -160,15 +183,22 @@ module frame_vertical(crossection=false)
 
 module frame_bottom(crossection=false)
 {
+    fl = horizontal_frame_length;
     render(convexity=10)
         difference()
     {
-	translate ([0,-30,60])
+	translate ([0, -FRAME_SIDE_LENGTH/2, FRAME_SIDE_LENGTH])
 	  rotate ([0, 90, 0])
-	  square_profile ([60, 60, 374], 2, 2);
-	translate ([0, 00, 45*sqrt(2)])
+	  square_profile ([FRAME_SIDE_LENGTH,
+                           FRAME_SIDE_LENGTH,
+                           fl],
+                          FRAME_THICKNESS,
+                          FRAME_RADIUS);
+	translate ([(FRAME_SIDE_LENGTH - FRAME_SIDE_LENGTH*sqrt(2))/2,
+                    0,
+                    (FRAME_SIDE_LENGTH + FRAME_SIDE_LENGTH*sqrt(2))/2])
 	  rotate ([0, 45, 0])
-	  cube([90, 90, 90],center=true);
+            cube(FRAME_SIDE_LENGTH * 2,center=true);
         if (crossection)
             translate([-1, -1000, -1]) cube(1000);
     }
@@ -182,16 +212,16 @@ module frame_bottom(crossection=false)
 module steel_frame()
 {
     assembly ();
-    translate ([0, 0, vertical_frame_length - 60]) {
+    translate ([0, 0, vertical_frame_length - FRAME_SIDE_LENGTH]) {
         frame_top(true);
         translate([X_AXIS_POSITION, 0, 2]) x_axis ();
     }
     translate ([0, 0, 0]) frame_vertical(true);
-    translate ([58, 0, Z_AXIS_POSITION])
+    translate ([FRAME_SIDE_LENGTH - FRAME_THICKNESS, 0, Z_AXIS_POSITION])
         z_axis();
-    // translate ([0, 0, 0]) frame_bottom(true);
+    translate ([0, 0, 0]) frame_bottom(true);
 
-    echo (str ("BOM: square pipe 60x60x",
+    echo (str ("BOM: square pipe ", FRAME_SIDE_LENGTH, "x", FRAME_SIDE_LENGTH, "x",
                10 * ceil (((2*horizontal_frame_length +
                             vertical_frame_length) * 1.05) / 10)));
     end ();
