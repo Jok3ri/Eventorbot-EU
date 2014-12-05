@@ -109,15 +109,18 @@ module bed_carriage()
 module bed ()
 {
     rod_dia = 8;
-    rod_len = 25.4 * 10.5;
+    rod_len = Y_smooth_rod_length;
 
     assembly();
-    translate ([ 0.1, -60.00, 28. ])
+    translate ([ 0.1, -(Y_CARRIAGE_LENGTH/2 +
+                        Y_ROD_CLAMP_LENGTH +
+                        BED_FRAME_WIDTH_N +
+                        y_carriage_render_position), 28. ])
         rotate ([180, 0, 90])
     {
         // bed frame part one
         color (bed_frame_one) p020();
-        translate ([21, 165-7-121.10, 21.5])
+        translate ([20, 165-7-121.10, 21.5])
             rotate ([90,90,180])
         {
             color (bed_frame_belt_clamp) p022();
@@ -130,7 +133,7 @@ module bed ()
             rotate ([0,0,180])
         {
             color (bed_frame_two) p021 ();
-            translate ([21-7.5, 7+121.10, 21.5])
+            translate ([20-7.5, 7+121.10, 21.5])
                 rotate ([90,90,0])
             {
                 color (bed_frame_belt_clamp) p022 ();
@@ -145,7 +148,9 @@ module bed ()
                 rotate([0, 90, 0])
             {
                 rotate([0, 0, 20])rod(rod_dia, rod_len);
-                translate ([0, 0, rod_len - 17.8])
+                translate ([0, 0, rod_len -
+                            BED_FRAME_WIDTH_N -
+                            Y_ROD_CLAMP_LENGTH])
                 {
                     color(bed_frame_rod_clamp) p023 ();
                     color (bolt_color) p023_mounting();

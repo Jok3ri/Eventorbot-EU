@@ -25,7 +25,8 @@ use <p008.scad>
 
 module p007 ()
 {
-    difference ()
+    render ()
+        difference ()
     {
         union ()
         {

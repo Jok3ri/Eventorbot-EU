@@ -29,10 +29,10 @@ use <p023.scad>
 
 /// \file x_axis.scad X axis assembly.
 
-module xz_rails ()
+module xz_rails (l=10.5 * 25.4)
 {
     rod_dia = 8;
-    rod_len = 10.5 * 25.4;
+    rod_len = l;
 
     assembly();
     translate ([26.4, -24.95, 0])
@@ -44,7 +44,7 @@ module xz_rails ()
         color (bolt_color)
             p016_mounting(length=2);
     }
-    translate ([rod_len - 26.4, 54.9 - 24.95, 0])
+    translate ([ceil(rod_len - ROD_SUPPORT_LENGTH), 54.9 - 24.95, 0])
 	rotate ([0, -90, 180])
         union ()
     {
@@ -65,10 +65,11 @@ module xz_rails ()
 
 module x_axis ()
 {
-    xz_rails ();
+    assembly ();
+    xz_rails (X_smooth_rod_length);
 
     // X carriage position x: <26.4, 218.7>
-    translate ([26.4+165.9, 8.2, 13.2])
+    translate ([ROD_SUPPORT_LENGTH + x_carriage_render_position, 8.2-24.95, 13.2])
         rotate ([0, 90, 0])
         x_carriage()
         end();

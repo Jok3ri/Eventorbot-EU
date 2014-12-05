@@ -40,8 +40,10 @@ module z_axis ()
 {
     assembly();
     rotate ([0, -90, 0])
-        xz_rails();
-    translate ([-2.2, -24.95 - 2.8, 85])
+        xz_rails(Z_smooth_rod_length);
+    translate ([-2.2, -24.95 - 2.8,
+                Z_CARRIAGE_LENGTH +
+                ROD_SUPPORT_LENGTH + z_carriage_render_position])
         rotate([0, 180, 0])
     {
         // z axis carriage

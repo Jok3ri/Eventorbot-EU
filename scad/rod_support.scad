@@ -61,7 +61,7 @@ module rod_support (side = "right")
 {
     side_scale = (side == "right") ? 1 : ((side == "left") ? -1 : 0);
     side_trans = (side == "right") ? 0 : ((side == "left") ? 54.9 : 0);
-    render ()
+    render (convexity=6)
         difference ()
     {
         union()

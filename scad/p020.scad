@@ -48,7 +48,7 @@ module p020()
                 }
 
             // end-stop pusher
-            translate([5, 165-7-84.2, 0])
+            translate([4, 165-7-84.2, 0])
                 union () {
                 cube ([16, 7, 14.5]);
                 translate ([0, 3.5, 14.5])
@@ -58,9 +58,9 @@ module p020()
 
             // belt holder
             difference(){
-                translate([5,165-20-101.1,0])
+                translate([4,165-20-101.1,0])
                     cube ([16,20,21.5]);
-                translate([3.5,165-20-101.1-1,6])
+                translate([4,165-20-101.1-1,6])
                     cube ([9,22,10]);
             }
 
@@ -72,7 +72,7 @@ module p020()
 
             // rod holders
             for (t = r)
-                translate ([5,165-t-9,0])
+                translate ([4,165-t-9,0])
                 {
                     cube([16,18,21.5-9]);
                     translate([0,9,21.5-9])
@@ -82,7 +82,7 @@ module p020()
         }
 
         // bolts for belt clamp
-        translate ([21, 165-7-121.10, 21.5])
+        translate ([20, 165-7-121.10, 21.5])
             rotate ([90,90,180])
             p022_mounting(21, false);
 

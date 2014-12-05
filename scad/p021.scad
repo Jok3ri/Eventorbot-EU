@@ -19,6 +19,7 @@
 
 /// \file p021.scad Bed frame, part 2
 
+include <config.scad>
 include <../lib/metric_fasteners_tab.scad>
 use <../lib/metric_fasteners.scad>
 use <../lib/bom.scad>
@@ -83,7 +84,7 @@ module p021()
 {
     h = [21.5, 16.5];
     t = [0, 151];
-    r = [32.1, 68.6];
+    r = [32.1, 32.1 + Y_rod_distance];
     render ()
         difference ()
     {
@@ -103,7 +104,7 @@ module p021()
                 }
 
             // end-stop pusher
-            translate([5, 84.2, 0])
+            translate([4, 84.2, 0])
                 union () {
                 cube ([16, 7, 14.5]);
                 translate ([0, 3.5, 14.5])
@@ -113,7 +114,7 @@ module p021()
 
             // belt holder
             difference(){
-                translate([5,101.1,0])
+                translate([4,101.1,0])
                     cube ([16,20,21.5]);
                 translate([4,101.1-1,6])
                     cube ([9,22,10]);
