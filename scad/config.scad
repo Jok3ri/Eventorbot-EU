@@ -37,13 +37,11 @@ FRAME_RADIUS = 3 * FRAME_THICKNESS; /**< Max 3 according to
                                      * BN-79/0656-01, see also
                                      * EN10219 */
 
-X_AXIS_POSITION = 70.8;         /**< Position of the X axis assembly in the frame */
 X_CARRIAGE_LENGTH = 48.0;       /**< The length of X carriage along the rods */
 Y_CARRIAGE_LENGTH = 51.0;       /**< The length of Y bearing holder along the rods */
 Y_ROD_CLAMP_LENGTH = 10;
 BED_FRAME_WIDTH_N = 10;         /**< Widht of the narrow parts of the bed frame */
 BED_FRAME_WIDHT_W = 14;         /**< Widht of the wide parts of the bed frame */
-Z_AXIS_POSITION = 68.8;         /**< Position of the Z axis assembly in the frame */
 Z_CARRIAGE_LENGTH = 48.0;       /**< The length of Z carriage along the rods */
 ROD_SUPPORT_LENGTH = 26.4;      /**< The length of X and Z axis rods
                                  * hidden in the supporting element */
@@ -68,6 +66,9 @@ with_ball_screw = false;        /**< Build the machine with a ball
                                  * threaded rod, */
 
 /* Helper variables, avoid touching. */
+X_AXIS_POSITION = FRAME_SIDE_LENGTH + 10.8; /**< Position of the X axis assembly in the frame */
+Z_AXIS_POSITION = FRAME_SIDE_LENGTH + 18.8; /**< Position of the Z axis assembly in the frame */
+
 horizontal_frame_hole_position = ceil(X_AXIS_POSITION + ROD_SUPPORT_LENGTH);
 horizontal_frame_hole_length   = ceil(x_working_distance + X_CARRIAGE_LENGTH);
 horizontal_frame_hole_width    = 25;
@@ -78,7 +79,7 @@ vertical_frame_hole_position = ceil(Z_AXIS_POSITION + ROD_SUPPORT_LENGTH);
 vertical_frame_hole_length   = ceil(z_working_distance + Z_CARRIAGE_LENGTH);
 vertical_frame_hole_width    = 25;
 vertical_frame_length = vertical_frame_hole_position +
-    vertical_frame_hole_length + 130;
+    vertical_frame_hole_length + 70 + FRAME_SIDE_LENGTH;
 
 X_smooth_rod_length = horizontal_frame_hole_length +
     2 * ceil(ROD_SUPPORT_LENGTH);        /**< Length of X axis smooth rods. */
